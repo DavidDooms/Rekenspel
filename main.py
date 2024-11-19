@@ -2,10 +2,8 @@ import numpy as np
 import tkinter as tk
 import tkinter.ttk as tkk
 
-end_game = False
-
 window = tk.Tk()
-window.geometry("100x100")
+window.geometry("1000x1000")
 
 greeting = tk.Label(text="HALLO ROXANE! \n\n WE GAAN REKENEN!", bg="pink")
 greeting.pack()
@@ -13,22 +11,29 @@ greeting.pack()
 start_button = tk.Button(window, text="START", command=window.destroy)
 start_button.pack(padx=5, pady=10)
 
-window = tk.Tk()
-window.geometry("100x100")
-
 window.mainloop()
+
+window = tk.Tk()
+window.geometry("1000x1000")
+
+#window.mainloop()
+
+end_game = False
 
 while not end_game:
     num1 = np.random.randint(11)
     num2 = np.random.randint(11)
 
-    sol = input(f"Hoeveel is {num1} + {num2}? Stoppen? (Q)")
+    question = tk.Label(text=f"Hoeveel is {num1} + {num2}?")
+    solution = tk.Entry(fg="yellow", bg="blue", width=50)
+    #sol = input(f"Hoeveel is {num1} + {num2}? Stoppen? (Q)")
 
-    if sol.lower() == "q":
+    window.mainloop()
+    if solution.lower() == "q":
         end_game = True
         print("Einde spelletje, goed gedaan!")
     else:
-        while not (int(sol) == (num1 + num2)):
+        while not (int(solution) == (num1 + num2)):
             print(f"Fout, probeer opnieuw!")
             sol = input(f"Hoeveel is {num1} + {num2}?")
 

@@ -1,33 +1,16 @@
+from src.engine import MathGame
+
 import numpy as np
 import tkinter as tk
 import tkinter.ttk as tkk
 
-window = tk.Tk()
-window.geometry("1000x1000")
-
-greeting = tk.Label(text="HALLO ROXANE! \n\n WE GAAN REKENEN!", bg="pink")
-greeting.pack()
-
-start_button = tk.Button(window, text="START", command=window.destroy)
-start_button.pack(padx=5, pady=10)
-
-window.mainloop()
-
-window = tk.Tk()
-window.geometry("1000x1000")
-
-#window.mainloop()
-
 
 def submit():
     answer.get()
-
-    #print("The name is : " + name)
-
     answer.set("")
 
 
-end_game = False
+end_game = True
 
 while not end_game:
     num1 = np.random.randint(11)
@@ -57,6 +40,23 @@ while not end_game:
             tk.Label(text="Fout, probeer opnieuw!")
             sol = input(f"Hoeveel is {num1} + {num2}?")"""
 
+
+if __name__ == "__main__":
+    window = tk.Tk()
+    window.geometry("200x200")
+    window.configure(background="pink")
+
+    greeting = tk.Label(text="HALLO ROXANE! \n\n WE GAAN REKENEN!", bg="pink")
+    greeting.pack()
+
+    start_button = tk.Button(window, text="START", command=window.destroy)
+    start_button.pack(padx=5, pady=10)
+
     window.mainloop()
 
-
+    window = tk.Tk()
+    window.geometry("200x200")
+    window.configure(background="pink")
+    
+    game = MathGame(window)
+    window.mainloop()

@@ -57,6 +57,6 @@ if __name__ == "__main__":
     window = tk.Tk()
     window.geometry("200x200")
     window.configure(background="pink")
-    
+
     game = MathGame(window)
     window.mainloop()
